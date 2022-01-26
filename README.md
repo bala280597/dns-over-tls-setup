@@ -1,4 +1,4 @@
-# DNS-over-TLS-proxy
+# DNS-over-TLS-Setup-
 
 ## Background
 DNS over TLS (Transport Layer Security) or “DoT” is an IETF standard that provides full-stream encryption between a DNS client and a DNS server. DNS has traditionally suffered from a “last mile” security problem: Communications between a DNS client and the DNS server are almost always unencrypted, and therefore subject to spoofing, interception, and more. 
