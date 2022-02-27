@@ -26,7 +26,7 @@ pipeline{
                 def scannerHome = tool 'sonar_scanner'
 
                 withSonarQubeEnv('sonarqube') {
-                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=src -Dsonar.sources=dnsovertls.py  "
+                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=./src/ -Dsonar.sources=dnsovertls.py  "
                   }
                 }
             }
