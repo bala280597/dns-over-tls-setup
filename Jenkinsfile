@@ -26,7 +26,7 @@ pipeline{
                 def scannerHome = tool 'sonar_scanner'
 
                 withSonarQubeEnv('sonarqube') {
-                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=bala280597/dns-over-tls-setup -Dsonar.sources=. "
+                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=dns-over-tls-setup -Dsonar.sources=. "
                   }
                 }
             }
