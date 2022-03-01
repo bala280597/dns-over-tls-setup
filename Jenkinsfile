@@ -16,7 +16,7 @@ pipeline{
                 extensions: [],
                 userRemoteConfigs: [[
                     credentialsId: 'c94b22eb-6c7d-440b-b468-06679d537899',
-                    url: 'https://github.com/bala280597/Nodejs.git']]])
+                    url: 'https://github.com/bala280597/dns-over-tls-setup.git']]])
             }
         }
         
@@ -26,7 +26,7 @@ pipeline{
                 def scannerHome = tool 'sonar_scanner'
 
                 withSonarQubeEnv('sonarqube') {
-                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=dns-over-tls-setup -Dsonar.sources=src "
+                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=dns-over-tls-setup -Dsonar.sources=. "
                   }
                 }
             }
