@@ -15,7 +15,7 @@ pipeline{
                 branches: [[name: '**']],
                 extensions: [],
                 userRemoteConfigs: [[
-                    credentialsId: 'c94b22eb-6c7d-440b-b468-06679d537899',
+                    credentialsId: 'github',
                     url: 'https://github.com/bala280597/dns-over-tls-setup.git']]])
             }
         }
