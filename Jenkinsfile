@@ -1,32 +1,26 @@
 pipeline{
     agent any
     environment {
-        PROJECT_ID = 'essential-city-336316'
+        PROJECT_ID = 'refined-circuit-342805'
         CLUSTER_NAME = 'cluster-1'
-        LOCATION = 'us-central1-c'
-        CREDENTIALS_ID = 'essential-city-336316'
+        LOCATION = 'us-central1-a'
+        CREDENTIALS_ID = 'refined-circuit-342805'
         DOCKER_USER = credentials('docker-user')
         DOCKER_PASS = credentials('docker-pass')
     }
     stages{
-        stage('Checkout'){
-            steps{
-                checkout([$class: 'GitSCM',
-                branches: [[name: '**']],
-                extensions: [],
-                userRemoteConfigs: [[
-                    credentialsId: 'github',
-                    url: 'https://github.com/bala280597/dns-over-tls-setup.git']]])
-            }
-        }
-        
         stage('Sonar Code Analysis') {
             steps {
                 script {
                 def scannerHome = tool 'sonar_scanner'
-
+                
+                 sh """ mvn package"""
+                
+                
                 withSonarQubeEnv('sonarqube') {
-                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=dns-over-tls-setup -Dsonar.sources=. "
+                      
+                      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=dns-over-tls-setup -Dsonar.sources=. -Dsonar.java.binaries=./target/** "
+                      
                   }
                 }
             }
